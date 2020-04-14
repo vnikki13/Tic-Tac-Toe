@@ -3,8 +3,7 @@
 ## At A Glance
 
 - Individual [Stage 2 project](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/classroom/rule-of-three.md#stage-2)
-- Due before class on DATE HERE
-- Due EOD Friday at 6pm on DATE HERE
+- Due before class on Mon Apr 20
 
 ## Learning Goals
 
