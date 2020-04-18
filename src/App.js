@@ -48,7 +48,7 @@ const App = () => {
           }
         }
         newRow.push(square);
-      })
+      });
       return newRow;
     });
 
@@ -71,15 +71,20 @@ const App = () => {
         WINNER = "Player1 is the Winner!";
       } else if (threeInARow.every(obj => obj.value === 'O')) {
         WINNER = "Player2 is the Winner!";
-      } else if (allSquares.every(obj => obj.value !== '')) {
-        WINNER = "It's a tie!";
       }
     });
+
+    if (WINNER) {
+      return;
+    } else if (allSquares.every(obj => obj.value !== '')) {
+        WINNER = "It's a tie!";
+    }
   }
 
   const resetGame = () => {
     setSquares(generateSquares());
     WINNER = ''
+    TURN = 0
   }
 
   return (
