@@ -5,8 +5,8 @@ import Board from './components/Board';
 
 const PLAYER_1 = 'X';
 const PLAYER_2 = 'O';
-let WINNER = ''
-let TURN = 0
+let WINNER = '';
+let TURN = 0;
 
 const generateSquares = () => {
   const squares = [];
@@ -37,36 +37,35 @@ const App = () => {
     }
 
     const newSquares = squares.map((row) => {
-      const newRow = []
+      const newRow = [];
       row.forEach((square) => {
         if (square.id === id && square.value === '') {
-          TURN++
+          TURN++;
           if (TURN % 2 === 1) {
-            square.value = PLAYER_1
+            square.value = PLAYER_1;
           } else {
-            square.value = PLAYER_2
+            square.value = PLAYER_2;
           }
         }
-        newRow.push(square)
+        newRow.push(square);
       })
+      return newRow;
+    });
 
-      return newRow
-    })
-
-    setSquares(newSquares)
+    setSquares(newSquares);
     if (TURN > 4) {
-      checkForWinner()
+      checkForWinner();
     }
   }
 
   const checkForWinner = () => {
-    const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-    let allSquares = squares.flat()
+    const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+    const allSquares = squares.flat();
 
     winConditions.forEach((condition) => {
-      let threeInARow = []
+      let threeInARow = [];
       condition.forEach((i) => {
-        threeInARow.push(allSquares[i])
+        threeInARow.push(allSquares[i]);
       })
       if (threeInARow.every(obj => obj.value === 'X')) {
         WINNER = "Player1 is the Winner!";
@@ -75,11 +74,11 @@ const App = () => {
       } else if (allSquares.every(obj => obj.value !== '')) {
         WINNER = "It's a tie!";
       }
-    })
+    });
   }
 
   const resetGame = () => {
-    setSquares(generateSquares())
+    setSquares(generateSquares());
     WINNER = ''
   }
 
