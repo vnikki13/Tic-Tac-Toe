@@ -83,8 +83,8 @@ const App = () => {
 
   const resetGame = () => {
     setSquares(generateSquares());
-    WINNER = ''
-    TURN = 0
+    WINNER = '';
+    TURN = 0;
   }
 
   return (
